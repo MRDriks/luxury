@@ -1,0 +1,42 @@
+@import "@/assets/scss/reset.scss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Sintony:wght@400;700&display=swap');
+
+$white: #fff;
+$orange: #fea100;
+$pink: #fe4c8d;
+$dark-blue: #14141d;
+$default-blue: #2c465a;
+
+$Playfair: 'Playfair Display', serif;
+$Sintony: 'Sintony', sans-serif;
+
+%row-center-aligment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin font($family, $size, $weight, $color) {
+  font-family: $family;
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+.container {
+  width: 1170px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.wrapper {
+  font-family: $Playfair;
+  color: $dark-blue;
+}
+
+.btn {
+  @include font($Sintony, 14px, 700, $white);
+  text-transform: uppercase;
+  background-color: $orange;
+  border-radius: 4px;
+}
