@@ -1,9 +1,15 @@
 <template>
   <main>
-    Hello
+    <Reviews />
   </main>
 </template>
 
 <script>
-export default {};
+import Reviews from '@/components/Reviews';
+
+export default {
+  components: {
+    Reviews
+  }
+};
 </script>

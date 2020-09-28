@@ -1,3 +1,15 @@
+// Reserved class names: 
+// header
+// main
+// banner
+// reviews
+// about
+// special
+// food
+// clients
+// reserve
+// footer 
+
 .container {
     width: 1170px;
     margin: 0 auto;
@@ -36,10 +48,13 @@
     @include font($Sintony, 14px, 400, $default-grey);
 }
 
-.delivary-text {
+.delivery-text {
     @include font($Sintony, 14px, 700, $dark-blue);
+    text-transform: uppercase;
 
     span {
         color: $pink;
     }
 }
+
+
