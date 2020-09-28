@@ -29,7 +29,7 @@
           </li>
           <li>
             <div class="cart">
-              <img src="@/assets/img/icons/icon_cart.png" alt="Cart" />
+              <img src="@/assets/img/icons/cart.png" alt="Cart" />
               <img src="@/assets/img/icons/arrow.png" alt="Arrow" />
               <div class="counter">
                 <span>0</span>
@@ -40,7 +40,7 @@
             <router-link to="/reservation" class="link">
               <div class="back-layout">
                 <div class="btn btn-reserve">
-                  <img src="@/assets/img/icons/icon_plate.png" alt="Plate" />
+                  <img src="@/assets/img/icons/plate.png" alt="Plate" />
                   <span>book your table</span>
                 </div>
               </div>
@@ -53,7 +53,9 @@
 </template>
 
 <style lang="scss">
-@import "@/assets/scss/main.scss";
+@import '@/assets/scss/variables.scss';
+@import '@/assets/scss/templates.scss';
+@import '@/assets/scss/mixins.scss';
 
 .header {
   padding: 22px 0 18px;
