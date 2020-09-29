@@ -42,7 +42,6 @@
   position: relative;
 
   p {
-    line-height: 26px;
     margin: 40px 0 70px;
   }
   a {

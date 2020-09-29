@@ -92,11 +92,11 @@
   .p-call {
     margin-left: 20px;
   }
-}
 
-.delivery-text {
-  span {
-    color: $orange;
+  .delivery-text {
+    span {
+      color: $orange;
+    }
   }
 }
 </style>

@@ -11,7 +11,7 @@
 // footer 
 
 .container {
-    width: 1170px;
+    width: $content-size;
     margin: 0 auto;
     height: 100%;
 }
@@ -32,6 +32,14 @@
     @include font($Playfair, 32px, 700, $dark-blue);
 }
 
+.price {
+    @include font($Playfair, 30px, 700, $orange);
+
+    sup {
+        font-size: 0.6em;
+    }
+}
+
 .section-h-black, .section-h-white, .block-h-black {
     @include font($Playfair, 35px, 700, $dark-blue);
 }
@@ -46,11 +54,13 @@
 
 .text {
     @include font($Sintony, 14px, 400, $default-grey);
+    line-height: 26px;
 }
 
 .delivery-text {
     @include font($Sintony, 14px, 700, $dark-blue);
     text-transform: uppercase;
+    line-height: 17px;
 
     span {
         color: $pink;
