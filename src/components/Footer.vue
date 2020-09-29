@@ -76,7 +76,7 @@
         </div>
         <div class="rights">
           <p>
-            2016 &copy; <a href="/">Luxury restaurant</a>, all rights reserved
+            2020 &copy; <a href="/">Luxury restaurant</a>, all rights reserved
           </p>
         </div>
       </div>

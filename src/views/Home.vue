@@ -1,15 +1,18 @@
 <template>
   <main>
-    <Reviews />
+    <ReviewsSection />
+    <AboutUsSection />
   </main>
 </template>
 
 <script>
-import Reviews from '@/components/Reviews';
+import ReviewsSection from '@/components/ReviewsSection';
+import AboutUsSection from '@/components/AboutUsSection';
 
 export default {
   components: {
-    Reviews
+    ReviewsSection,
+    AboutUsSection
   }
 };
 </script>
