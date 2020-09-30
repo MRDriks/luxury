@@ -25,7 +25,7 @@
           </p>
         </div>
         <div class="box">
-          <p class="tel">1-008 005 006</p>
+          <a href="tel:1008005006" class="tel">1-008 005 006</a>
         </div>
       </div>
     </div>

@@ -1,53 +1,156 @@
 <template>
   <section class="special">
     <div class="wallpaper"></div>
-    <div class="content">
+    <div class="swiper-container">
+      <div class="swiper-pagination"></div>
       <h2 class="section-h-white">Today Special</h2>
-      <div class="cards-box">
-        <div class="card">
-          <div class="card-header">
-            <img src="@/assets/img/pizza-presentation.jpg" alt="Pizza" />
-          </div>
-          <div class="card-body">
-            <h3 class="block-h-black">Food Name one</h3>
-            <p class="text">
-              printing and typesetting industry. Lorem Ipsum has been the
-              industry's standard dummy text ever since the 1500s, when an
-              unknown printer took a galley of type and scrambled.
-            </p>
-          </div>
-          <div class="card-footer">
-            <p class="delivery-text">
-              home <br />
-              <span>delivery</span>
-            </p>
-            <p class="tel">1-008 005 006</p>
-            <p class="price"><sup>$</sup>89.00</p>
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="content">
+            <div class="cards-box">
+              <div class="card">
+                <div class="card-header">
+                  <img src="@/assets/img/food-presentation-1.jpg" alt="Pizza" />
+                </div>
+                <div class="card-body">
+                  <h3 class="block-h-black">Food Name one</h3>
+                  <p class="text">
+                    printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an
+                    unknown printer took a galley of type and scrambled.
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <p class="delivery-text">
+                    home <br />
+                    <span>delivery</span>
+                  </p>
+                  <a href="tel:1088055006" class="tel">1-008 005 006</a>
+                  <p class="price"><sup>$</sup>89.00</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header">
+                  <img src="@/assets/img/food-presentation-4.jpg" alt="Beef" />
+                </div>
+                <div class="card-body">
+                  <h3 class="block-h-black">Food Name two</h3>
+                  <p class="text">
+                    printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an
+                    unknown printer took a galley of type and scrambled.
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <p class="delivery-text">
+                    home <br />
+                    <span>delivery</span>
+                  </p>
+                  <a href="tel:1088055006" class="tel">1-008 005 006</a>
+                  <p class="price"><sup>$</sup>99.00</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="card">
-          <div class="card-header">
-            <img src="@/assets/img/beef-presentation.jpg" alt="Beef" />
-          </div>
-          <div class="card-body">
-            <h3 class="block-h-black">Food Name two</h3>
-            <p class="text">
-              printing and typesetting industry. Lorem Ipsum has been the
-              industry's standard dummy text ever since the 1500s, when an
-              unknown printer took a galley of type and scrambled.
-            </p>
-          </div>
-          <div class="card-footer">
-            <p class="delivery-text">
-              home <br />
-              <span>delivery</span>
-            </p>
-            <p class="tel">1-008 005 006</p>
-            <p class="price"><sup>$</sup>99.00</p>
+        <div class="swiper-slide">
+          <div class="content">
+            <div class="cards-box">
+              <div class="card">
+                <div class="card-header">
+                  <img src="@/assets/img/food-presentation-3.jpg" alt="Pizza" />
+                </div>
+                <div class="card-body">
+                  <h3 class="block-h-black">Food Name three</h3>
+                  <p class="text">
+                    printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an
+                    unknown printer took a galley of type and scrambled.
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <p class="delivery-text">
+                    home <br />
+                    <span>delivery</span>
+                  </p>
+                  <a href="tel:1088055006" class="tel">1-008 005 006</a>
+                  <p class="price"><sup>$</sup>87.00</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header">
+                  <img src="@/assets/img/food-presentation-2.jpg" alt="Beef" />
+                </div>
+                <div class="card-body">
+                  <h3 class="block-h-black">Food Name four</h3>
+                  <p class="text">
+                    printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an
+                    unknown printer took a galley of type and scrambled.
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <p class="delivery-text">
+                    home <br />
+                    <span>delivery</span>
+                  </p>
+                  <a href="tel:1088055006" class="tel">1-008 005 006</a>
+                  <p class="price"><sup>$</sup>69.00</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <img src="@/assets/img/decor-pizza.png" alt="" class="decor-pizza" />
+        <div class="swiper-slide">
+          <div class="content">
+            <div class="cards-box">
+              <div class="card">
+                <div class="card-header">
+                  <img src="@/assets/img/food-presentation-5.jpg" alt="Pizza" />
+                </div>
+                <div class="card-body">
+                  <h3 class="block-h-black">Food Name five</h3>
+                  <p class="text">
+                    printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an
+                    unknown printer took a galley of type and scrambled.
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <p class="delivery-text">
+                    home <br />
+                    <span>delivery</span>
+                  </p>
+                  <a href="tel:1088055006" class="tel">1-008 005 006</a>
+                  <p class="price"><sup>$</sup>54.00</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header">
+                  <img src="@/assets/img/food-presentation-6.jpg" alt="Beef" />
+                </div>
+                <div class="card-body">
+                  <h3 class="block-h-black">Food Name six</h3>
+                  <p class="text">
+                    printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an
+                    unknown printer took a galley of type and scrambled.
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <p class="delivery-text">
+                    home <br />
+                    <span>delivery</span>
+                  </p>
+                  <a href="tel:1088055006" class="tel">1-008 005 006</a>
+                  <p class="price"><sup>$</sup>75.00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      <img src="@/assets/img/decor-pizza.png" alt="" class="decor-pizza" />
     </div>
   </section>
 </template>
@@ -57,11 +160,20 @@ import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.css';
 
 export default {
-    mounted() {
-        new Swiper('.swiper-container', {
-
-        });
-    }
+  mounted() {
+    new Swiper('.swiper-container', {
+      direction: 'horizontal',
+      loop: true,
+      autoplay: {
+        delay: 10000
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      spaceBetween: 100
+    });
+  }
 };
 </script>
 
@@ -96,20 +208,16 @@ export default {
   .content {
     width: $content-size;
     position: absolute;
-    top: 100px;
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
-
-    .section-h-white {
-      text-align: center;
-      margin-bottom: 34px;
-    }
+    z-index: 10;
   }
 
   .decor-pizza {
     position: absolute;
-    right: -65px;
-    bottom: -125px;
+    right: 10px;
+    bottom: 0;
     z-index: 5;
     width: 200px;
   }
@@ -127,12 +235,14 @@ export default {
   background-color: $white;
   position: relative;
   z-index: 10;
+  border-radius: 10px;
 }
 
 .card-header {
   img {
     width: 569px;
     height: 420px;
+    border-radius: 10px;
   }
 }
 
@@ -158,17 +268,72 @@ export default {
 
   .tel {
     font-size: 26px;
-    border-left: 1px solid #e1e1e1;
-    padding-left: 18px;
+    margin-left: 18px;
   }
 
   .delivery-text {
     font-size: 13px;
-    margin-right: 18px;
+    padding-right: 18px;
+    border-right: 1px solid #e1e1e1;
   }
 
   .price {
     margin-left: auto;
   }
+}
+
+.swiper-container {
+  width: 100%;
+  height: 990px;
+  position: absolute;
+  top: 0;
+
+  .section-h-white {
+    text-align: center;
+    margin: 100px 0 34px;
+  }
+}
+
+.swiper-wrapper {
+  z-index: 10;
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets {
+  bottom: auto;
+  width: 1170px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-align: right;
+  top: 120px;
+}
+
+.swiper-pagination-bullet {
+  width: 14px;
+  height: 14px;
+  border-radius: 7px;
+  border: 2px solid #aaa7ae;
+}
+
+.swiper-pagination-bullet-active {
+  border-color: $orange;
+  background: transparent;
+  position: relative;
+
+  &::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background-color: $orange;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+  }
+}
+
+.swiper-slide {
+  height: 730px;
 }
 </style>
