@@ -1,7 +1,7 @@
 <template>
   <section class="special">
     <div class="wallpaper"></div>
-    <div class="swiper-container">
+    <div class="swiper-container special-slider">
       <div class="swiper-pagination"></div>
       <h2 class="section-h-white">Today Special</h2>
       <div class="swiper-wrapper">
@@ -150,18 +150,21 @@
           </div>
         </div>
       </div>
-      <img src="@/assets/img/decor-pizza.png" alt="" class="decor-pizza" />
+      <img
+        src="@/assets/img/decor-pizza.png"
+        alt="Decoration pizza"
+        class="decor-pizza"
+      />
     </div>
   </section>
 </template>
 
 <script>
 import Swiper from 'swiper/bundle';
-import 'swiper/swiper-bundle.css';
 
 export default {
   mounted() {
-    new Swiper('.swiper-container', {
+    new Swiper('.special-slider', {
       direction: 'horizontal',
       loop: true,
       autoplay: {
@@ -206,11 +209,9 @@ export default {
   padding-bottom: 550px;
 
   .content {
-    width: $content-size;
+    @extend %container-center-aligment;
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
     z-index: 10;
   }
 
@@ -220,6 +221,33 @@ export default {
     bottom: 0;
     z-index: 5;
     width: 200px;
+  }
+
+  .swiper-container {
+    width: 100%;
+    height: 990px;
+    position: absolute;
+    top: 0;
+
+    .section-h-white {
+      text-align: center;
+      margin: 100px 0 34px;
+    }
+  }
+
+  .swiper-wrapper {
+    z-index: 10;
+  }
+
+  .swiper-container-horizontal > .swiper-pagination-bullets {
+    bottom: auto;
+    @extend %container-center-aligment;
+    text-align: right;
+    top: 120px;
+  }
+
+  .swiper-slide {
+    height: 730px;
   }
 }
 
@@ -280,60 +308,5 @@ export default {
   .price {
     margin-left: auto;
   }
-}
-
-.swiper-container {
-  width: 100%;
-  height: 990px;
-  position: absolute;
-  top: 0;
-
-  .section-h-white {
-    text-align: center;
-    margin: 100px 0 34px;
-  }
-}
-
-.swiper-wrapper {
-  z-index: 10;
-}
-
-.swiper-container-horizontal > .swiper-pagination-bullets {
-  bottom: auto;
-  width: 1170px;
-  left: 50%;
-  transform: translate(-50%, 0);
-  text-align: right;
-  top: 120px;
-}
-
-.swiper-pagination-bullet {
-  width: 14px;
-  height: 14px;
-  border-radius: 7px;
-  border: 2px solid #aaa7ae;
-}
-
-.swiper-pagination-bullet-active {
-  border-color: $orange;
-  background: transparent;
-  position: relative;
-
-  &::before {
-    content: '';
-    width: 4px;
-    height: 4px;
-    background-color: $orange;
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-  }
-}
-
-.swiper-slide {
-  height: 730px;
 }
 </style>
