@@ -4,6 +4,7 @@
     <ReviewsSection />
     <AboutUsSection />
     <SpecialSection />
+    <ClientsSection />
   </main>
 </template>
 
@@ -12,13 +13,15 @@ import BannerSection from '@/components/BannerSection';
 import ReviewsSection from '@/components/ReviewsSection';
 import AboutUsSection from '@/components/AboutUsSection';
 import SpecialSection from '@/components/SpecialSection';
+import ClientsSection from '@/components/ClientsSection';
 
 export default {
   components: {
     BannerSection,
     ReviewsSection,
     AboutUsSection,
-    SpecialSection
+    SpecialSection,
+    ClientsSection
   }
 };
 </script>

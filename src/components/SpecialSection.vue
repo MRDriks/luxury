@@ -168,7 +168,7 @@ export default {
       direction: 'horizontal',
       loop: true,
       autoplay: {
-        delay: 10000
+        delay: 20000
       },
       pagination: {
         el: '.swiper-pagination',
