@@ -6,6 +6,7 @@
     <SpecialSection />
     <FoodMenuSection />
     <ClientsSection />
+    <ReserveSection />
   </main>
 </template>
 
@@ -16,6 +17,7 @@ import AboutUsSection from '@/components/AboutUsSection';
 import SpecialSection from '@/components/SpecialSection';
 import FoodMenuSection from '@/components/FoodMenuSection';
 import ClientsSection from '@/components/ClientsSection';
+import ReserveSection from '@/components/ReserveSection';
 
 export default {
   components: {
@@ -24,7 +26,8 @@ export default {
     AboutUsSection,
     SpecialSection,
     FoodMenuSection,
-    ClientsSection
+    ClientsSection,
+    ReserveSection
   }
 };
 </script>
