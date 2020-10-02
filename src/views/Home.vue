@@ -4,6 +4,7 @@
     <ReviewsSection />
     <AboutUsSection />
     <SpecialSection />
+    <FoodMenuSection />
     <ClientsSection />
   </main>
 </template>
@@ -13,6 +14,7 @@ import BannerSection from '@/components/BannerSection';
 import ReviewsSection from '@/components/ReviewsSection';
 import AboutUsSection from '@/components/AboutUsSection';
 import SpecialSection from '@/components/SpecialSection';
+import FoodMenuSection from '@/components/FoodMenuSection';
 import ClientsSection from '@/components/ClientsSection';
 
 export default {
@@ -21,6 +23,7 @@ export default {
     ReviewsSection,
     AboutUsSection,
     SpecialSection,
+    FoodMenuSection,
     ClientsSection
   }
 };
