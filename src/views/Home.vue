@@ -1,33 +1,33 @@
 <template>
   <main>
-    <BannerSection />
-    <ReviewsSection />
-    <AboutUsSection />
-    <SpecialSection />
-    <FoodMenuSection />
-    <ClientsSection />
-    <ReserveSection />
+    <SectionBanner />
+    <SectionReviews />
+    <SectionAboutUs />
+    <SectionSpecial />
+    <SectionFoodMenu />
+    <SectionClients />
+    <SectionReserve />
   </main>
 </template>
 
 <script>
-import BannerSection from '@/components/BannerSection';
-import ReviewsSection from '@/components/ReviewsSection';
-import AboutUsSection from '@/components/AboutUsSection';
-import SpecialSection from '@/components/SpecialSection';
-import FoodMenuSection from '@/components/FoodMenuSection';
-import ClientsSection from '@/components/ClientsSection';
-import ReserveSection from '@/components/ReserveSection';
+import SectionBanner from '@/components/HomeSectionBanner';
+import SectionReviews from '@/components/HomeSectionReviews';
+import SectionAboutUs from '@/components/HomeSectionAboutUs';
+import SectionSpecial from '@/components/HomeSectionSpecial';
+import SectionFoodMenu from '@/components/HomeSectionFoodMenu';
+import SectionClients from '@/components/HomeSectionClients';
+import SectionReserve from '@/components/HomeSectionReserve';
 
 export default {
   components: {
-    BannerSection,
-    ReviewsSection,
-    AboutUsSection,
-    SpecialSection,
-    FoodMenuSection,
-    ClientsSection,
-    ReserveSection
+    SectionBanner,
+    SectionReviews,
+    SectionAboutUs,
+    SectionSpecial,
+    SectionFoodMenu,
+    SectionClients,
+    SectionReserve
   }
 };
 </script>

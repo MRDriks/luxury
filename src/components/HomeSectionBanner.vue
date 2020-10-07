@@ -85,10 +85,8 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '@/assets/scss/variables.scss';
-@import '@/assets/scss/templates.scss';
-@import '@/assets/scss/mixins.scss';
+<style lang="scss" scoped>
+@import '@/assets/scss/kit.scss';
 
 .banner {
   .container {

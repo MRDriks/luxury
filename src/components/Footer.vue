@@ -85,9 +85,7 @@
 </template>
 
 <style lang="scss">
-@import '@/assets/scss/variables.scss';
-@import '@/assets/scss/templates.scss';
-@import '@/assets/scss/mixins.scss';
+@import '@/assets/scss/kit.scss';
 
 .footer {
   background-color: $dark-grey;

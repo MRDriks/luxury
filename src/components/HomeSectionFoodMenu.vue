@@ -50,8 +50,8 @@
         <div class="tab">
           <div
             class="position"
-            v-for="position in menu.all"
-            v-bind:key="position.id"
+            v-for="position in products.menu.all"
+            :key="position.id"
           >
             <div class="description">
               <p class="title">{{ position.title }}</p>
@@ -67,8 +67,8 @@
         <div class="tab">
           <div
             class="position"
-            v-for="position in menu.breakfast"
-            v-bind:key="position.id"
+            v-for="position in products.menu.breakfast"
+            :key="position.id"
           >
             <div class="description">
               <p class="title">{{ position.title }}</p>
@@ -84,8 +84,8 @@
         <div class="tab">
           <div
             class="position"
-            v-for="position in menu.lunch"
-            v-bind:key="position.id"
+            v-for="position in products.menu.lunch"
+            :key="position.id"
           >
             <div class="description">
               <p class="title">{{ position.title }}</p>
@@ -101,8 +101,8 @@
         <div class="tab">
           <div
             class="position"
-            v-for="position in menu.snacks"
-            v-bind:key="position.id"
+            v-for="position in products.menu.snacks"
+            :key="position.id"
           >
             <div class="description">
               <p class="title">{{ position.title }}</p>
@@ -118,8 +118,8 @@
         <div class="tab">
           <div
             class="position"
-            v-for="position in menu.pizza"
-            v-bind:key="position.id"
+            v-for="position in products.menu.pizza"
+            :key="position.id"
           >
             <div class="description">
               <p class="title">{{ position.title }}</p>
@@ -135,8 +135,8 @@
         <div class="tab">
           <div
             class="position"
-            v-for="position in menu.soups"
-            v-bind:key="position.id"
+            v-for="position in products.menu.soups"
+            :key="position.id"
           >
             <div class="description">
               <p class="title">{{ position.title }}</p>
@@ -152,8 +152,8 @@
         <div class="tab">
           <div
             class="position"
-            v-for="position in menu.dinner"
-            v-bind:key="position.id"
+            v-for="position in products.menu.dinner"
+            :key="position.id"
           >
             <div class="description">
               <p class="title">{{ position.title }}</p>
@@ -179,24 +179,18 @@
 
 <script>
 import Tabby from 'tabbyjs';
-import menu from '@/db/menu-db';
+import { mapState } from 'vuex';
 
 export default {
-  data() {
-    return {
-      menu
-    };
-  },
+  computed: mapState(['products']),
   mounted() {
     new Tabby('[data-tabs]');
   }
 };
 </script>
 
-<style lang="scss">
-@import '@/assets/scss/variables.scss';
-@import '@/assets/scss/templates.scss';
-@import '@/assets/scss/mixins.scss';
+<style lang="scss" scoped>
+@import '@/assets/scss/kit.scss';
 
 .food-menu {
   h2 {

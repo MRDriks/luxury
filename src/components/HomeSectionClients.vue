@@ -51,10 +51,8 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '@/assets/scss/variables.scss';
-@import '@/assets/scss/templates.scss';
-@import '@/assets/scss/mixins.scss';
+<style lang="scss" scoped>
+@import '@/assets/scss/kit.scss';
 
 .clients {
   background: url('../assets/img/clients-bg.jpg') no-repeat center / cover;

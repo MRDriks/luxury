@@ -22,17 +22,21 @@
             <router-link to="/blog" class="link">blog</router-link>
           </li>
           <li>
-            <router-link to="/pages" class="link">pages</router-link>
+            <router-link to="/shop" class="link">shop</router-link>
           </li>
           <li>
             <router-link to="/contact" class="link">contact</router-link>
           </li>
           <li>
             <div class="cart">
-              <img src="@/assets/img/icons/cart.png" alt="Cart" />
-              <img src="@/assets/img/icons/arrow.png" alt="Arrow" />
+              <img src="@/assets/img/icons/cart.png" alt="Cart icon" />
+              <img src="@/assets/img/icons/arrow.png" alt="Arrow icon" />
               <div class="counter">
                 <span>0</span>
+              </div>
+              <div class="cart-preview">
+                <!-- <div class="item">
+                </div> -->
               </div>
             </div>
           </li>
@@ -53,12 +57,16 @@
 </template>
 
 <style lang="scss">
-@import '@/assets/scss/variables.scss';
-@import '@/assets/scss/templates.scss';
-@import '@/assets/scss/mixins.scss';
+@import '@/assets/scss/kit.scss';
 
 .header {
   padding: 22px 0 18px;
+  position: sticky;
+  width: 100%;
+  background-color: #fff;
+  z-index: 100;
+  top: 0px;
+  box-shadow: 0 0 8px grey;
 }
 
 .nav-bar {
@@ -89,6 +97,50 @@
 
     &:hover {
       cursor: pointer;
+
+      .cart-preview {
+        visibility: visible;
+        opacity: 1;
+        transform: rotateX(0deg);
+      }
+    }
+  }
+
+  .cart-preview {
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    background-color: $white;
+    top: 25px;
+    left: -350px;
+    visibility: hidden;
+    opacity: 0;
+    transform: rotateX(-90deg);
+    transition-duration: 0.5s;
+    transform-origin: top center;
+    border: 2px solid $orange;
+    border-radius: 4px;
+    cursor: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    .item {
+      width: 100%;
+      height: 125px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border-bottom: 1px solid $dark-blue;
+      padding: 5px 0;
+    }
+
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 5px;
     }
   }
 

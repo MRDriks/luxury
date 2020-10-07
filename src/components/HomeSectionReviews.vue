@@ -32,10 +32,8 @@
   </section>
 </template>
 
-<style lang="scss">
-@import '@/assets/scss/variables.scss';
-@import '@/assets/scss/templates.scss';
-@import '@/assets/scss/mixins.scss';
+<style lang="scss" scoped>
+@import '@/assets/scss/kit.scss';
 
 .reviews {
   background-color: #edf1f3;
