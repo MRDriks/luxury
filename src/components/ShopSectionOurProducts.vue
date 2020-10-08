@@ -22,26 +22,22 @@
         </div>
       </div>
       <p class="text">
-        Showing 9 of {{ products.allPositionsCounter }} products
+        Showing {{ products.pagination.currentPage }} of
+        {{ products.pagination.totalPages }} pages
       </p>
     </header>
     <div class="products-body">
       <ProductCard
-        v-for="position in products.positionsByCategory"
+        v-for="position in products.positionsByCategory.slice(
+          products.pagination.startIndex,
+          products.pagination.endIndex
+        )"
         :key="position.id"
-        v-bind:position="position"
+        :position="position"
       />
     </div>
     <footer class="products-footer">
-      <button class="btn btn-prev">
-        <i class="fas fa-chevron-left"></i>
-        prev
-      </button>
-      <button class="btn btn-page">1</button>
-      <button class="btn btn-next">
-        next
-        <i class="fas fa-chevron-right"></i>
-      </button>
+      <Pagination />
     </footer>
   </section>
 </template>
@@ -49,11 +45,13 @@
 <script>
 import { mapState } from 'vuex';
 import ProductCard from '@/components/ProductCard';
+import Pagination from '@/components/ProductsPagination';
 
 export default {
   computed: mapState(['products']),
   components: {
-    ProductCard
+    ProductCard,
+    Pagination
   },
   methods: {
     selectOnChange(event) {
@@ -153,36 +151,5 @@ export default {
 
 .products-footer {
   margin-top: 75px;
-
-  .btn {
-    padding: 13px 32px;
-    border-radius: 22px;
-
-    i {
-      font-size: 13px;
-    }
-  }
-
-  .btn-prev {
-    background-color: #ffeac5;
-    color: #d38a0c;
-
-    i {
-      margin-right: 8px;
-    }
-  }
-
-  .btn-next {
-    i {
-      margin-left: 8px;
-    }
-  }
-
-  .btn-page {
-    color: $dark-blue;
-    background-color: transparent;
-    border: 1px solid #d3d9dd;
-    margin: 0 10px;
-  }
 }
 </style>

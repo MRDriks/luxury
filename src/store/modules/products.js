@@ -3,10 +3,16 @@ const state = () => ({
   positions: [],
   menu: [],
   positionsByCategory: [],
-  defaultPositions: [],
   allPositionsCounter: 0,
   sortingState: 'default',
-  category: 'all'
+  category: 'all',
+  pagination: {
+    currentPage: 1,
+    totalPages: 0,
+    perPage: 6,
+    startIndex: 0,
+    endIndex: 6
+  }
 });
 
 // mutations
@@ -29,8 +35,17 @@ const mutations = {
   setCategory(state, category) {
     state.category = category;
   },
-  setDefaultPositions(state, positions) {
-    state.defaultPositions = positions;
+  setTotalPages(state, pages) {
+    state.pagination.totalPages = pages;
+  },
+  setStartIndex(state, index) {
+    state.pagination.startIndex = index;
+  },
+  setEndIndex(state, index) {
+    state.pagination.endIndex = index;
+  },
+  setCurrentPage(state, page) {
+    state.pagination.currentPage = page;
   }
 };
 
@@ -42,9 +57,9 @@ const actions = {
       .then(data => {
         const category = context.state.category;
         context.commit('setPositions', data);
-        context.commit('setDefaultPositions', data);
         context.commit('setPositionsByCategory', data[category]);
         this.dispatch('countPositions', category);
+        this.dispatch('countTotalPages');
       });
   },
   fetchMenu(context) {
@@ -69,7 +84,7 @@ const actions = {
     } else if (sorting_state === 'price-high') {
       this.dispatch('sortByHighPrice', data);
     } else if (sorting_state === 'default') {
-      // this.dispatch('fetchPositions')
+      context.commit('setPositionsByCategory', data);
     }
   },
   sortByHighPrice(context, data) {
@@ -85,6 +100,30 @@ const actions = {
   },
   setCategory(context, category) {
     context.commit('setCategory', category);
+  },
+  countTotalPages(context) {
+    const result = Math.ceil(
+      context.state.allPositionsCounter / context.state.pagination.perPage
+    );
+    context.commit('setTotalPages', result);
+  },
+  nextPage(context) {
+    const start = context.state.pagination.endIndex;
+    const end =
+      context.state.pagination.endIndex + context.state.pagination.perPage;
+    const page = context.state.pagination.currentPage + 1;
+    context.commit('setEndIndex', end);
+    context.commit('setStartIndex', start);
+    context.commit('setCurrentPage', page);
+  },
+  prevPage(context) {
+    const start =
+      context.state.pagination.startIndex - context.state.pagination.perPage;
+    const end = context.state.pagination.startIndex;
+    const page = context.state.pagination.currentPage - 1;
+    context.commit('setEndIndex', end);
+    context.commit('setStartIndex', start);
+    context.commit('setCurrentPage', page);
   }
 };
 
