@@ -2,8 +2,16 @@
   <section class="our-products">
     <header class="products-header">
       <h2 class="section-h-black">Our Products</h2>
-      <select class="select-list text">
-        <option class="option-item text" value="">Default Sorting</option>
+      <select class="select-list text" v-on:change="selectOnChange($event)">
+        <option class="option-item text" value="default"
+          >Default Sorting</option
+        >
+        <option class="option-item text" value="price-high"
+          >Price - High to Low</option
+        >
+        <option class="option-item text" value="price-low"
+          >Price - Low to High</option
+        >
       </select>
       <div class="display-style">
         <div class="grid">
@@ -13,72 +21,16 @@
           <span></span>
         </div>
       </div>
-      <p class="text">Showing 9 of {{ products.positionsCounter }} products</p>
+      <p class="text">
+        Showing 9 of {{ products.allPositionsCounter }} products
+      </p>
     </header>
     <div class="products-body">
-      <div id="all">
-        <div class="tab">
-          <ProductCard
-            v-for="position in products.positions.all"
-            :key="position.id"
-            v-bind:position="position"
-          />
-        </div>
-      </div>
-      <div id="breakfast">
-        <div class="tab">
-          <ProductCard
-            v-for="position in products.positions.breakfast"
-            :key="position.id"
-            v-bind:position="position"
-          />
-        </div>
-      </div>
-      <div id="lunch">
-        <div class="tab">
-          <ProductCard
-            v-for="position in products.positions.lunch"
-            :key="position.id"
-            v-bind:position="position"
-          />
-        </div>
-      </div>
-      <div id="snacks">
-        <div class="tab">
-          <ProductCard
-            v-for="position in products.positions.snacks"
-            :key="position.id"
-            v-bind:position="position"
-          />
-        </div>
-      </div>
-      <div id="pizza">
-        <div class="tab">
-          <ProductCard
-            v-for="position in products.positions.pizza"
-            :key="position.id"
-            v-bind:position="position"
-          />
-        </div>
-      </div>
-      <div id="soups">
-        <div class="tab">
-          <ProductCard
-            v-for="position in products.positions.soups"
-            :key="position.id"
-            v-bind:position="position"
-          />
-        </div>
-      </div>
-      <div id="dinner">
-        <div class="tab">
-          <ProductCard
-            v-for="position in products.positions.dinner"
-            :key="position.id"
-            v-bind:position="position"
-          />
-        </div>
-      </div>
+      <ProductCard
+        v-for="position in products.positionsByCategory"
+        :key="position.id"
+        v-bind:position="position"
+      />
     </div>
     <footer class="products-footer">
       <button class="btn btn-prev">
@@ -102,6 +54,13 @@ export default {
   computed: mapState(['products']),
   components: {
     ProductCard
+  },
+  methods: {
+    selectOnChange(event) {
+      const value = event.target.value;
+      this.$store.dispatch('sortingStateChange', value);
+      this.$store.dispatch('getPositionsByCategory');
+    }
   }
 };
 </script>
@@ -135,7 +94,7 @@ export default {
   justify-content: space-between;
 }
 
-.tab {
+.products-body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

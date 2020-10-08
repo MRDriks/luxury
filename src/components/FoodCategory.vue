@@ -1,95 +1,59 @@
 <template>
   <div class="food-category">
     <h3 class="title">Food Category</h3>
-    <ul data-tabs class="category-list">
+    <ul class="category-list">
       <li class="list-item">
         <div class="decor-arrow">
           <i class="fas fa-chevron-right"></i>
         </div>
-        <a
-          data-tabby-default
-          v-on:click="$store.dispatch('countPositions', 'all')"
-          class="link"
-          href="#all"
-          >All</a
-        >
+        <Button title="All" id="all" active="true" />
       </li>
       <li class="list-item">
         <div class="decor-arrow">
           <i class="fas fa-chevron-right"></i>
         </div>
-        <a
-          v-on:click="$store.dispatch('countPositions', 'breakfast')"
-          class="link"
-          href="#breakfast"
-          >Breakfast</a
-        >
+        <Button title="Breakfast" id="breakfast" />
       </li>
       <li class="list-item">
         <div class="decor-arrow">
           <i class="fas fa-chevron-right"></i>
         </div>
-        <a
-          v-on:click="$store.dispatch('countPositions', 'lunch')"
-          class="link"
-          href="#lunch"
-          >Lunch</a
-        >
+        <Button title="Lunch" id="lunch" />
       </li>
       <li class="list-item">
         <div class="decor-arrow">
           <i class="fas fa-chevron-right"></i>
         </div>
-        <a
-          v-on:click="$store.dispatch('countPositions', 'snacks')"
-          class="link"
-          href="#snacks"
-          >Snacks</a
-        >
+        <Button title="Snacks" id="snacks" />
       </li>
       <li class="list-item">
         <div class="decor-arrow">
           <i class="fas fa-chevron-right"></i>
         </div>
-        <a
-          v-on:click="$store.dispatch('countPositions', 'pizza')"
-          class="link"
-          href="#pizza"
-          >Pizza</a
-        >
+        <Button title="Pizza" id="pizza" />
       </li>
       <li class="list-item">
         <div class="decor-arrow">
           <i class="fas fa-chevron-right"></i>
         </div>
-        <a
-          v-on:click="$store.dispatch('countPositions', 'soups')"
-          class="link"
-          href="#soups"
-          >Soups</a
-        >
+        <Button title="Soups" id="soups" />
       </li>
       <li class="list-item">
         <div class="decor-arrow">
           <i class="fas fa-chevron-right"></i>
         </div>
-        <a
-          v-on:click="$store.dispatch('countPositions', 'dinner')"
-          class="link"
-          href="#dinner"
-          >Dinner</a
-        >
+        <Button title="Dinner" id="dinner" />
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import Tabby from 'tabbyjs';
+import Button from '@/components/FoodCategoryButton';
 
 export default {
-  mounted() {
-    new Tabby('[data-tabs]');
+  components: {
+    Button
   }
 };
 </script>
@@ -122,20 +86,6 @@ export default {
   i {
     font-size: 12px;
     color: $pink;
-  }
-}
-
-.link {
-  @include font($Sintony, 14px, 700, $dark-blue);
-  text-transform: uppercase;
-  transition-duration: 0.3s;
-
-  &:hover {
-    color: $orange;
-  }
-
-  &[aria-selected='true'] {
-    color: $orange;
   }
 }
 </style>

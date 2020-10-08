@@ -2,7 +2,11 @@
 const state = () => ({
   positions: [],
   menu: [],
-  positionsCounter: 0
+  positionsByCategory: [],
+  defaultPositions: [],
+  allPositionsCounter: 0,
+  sortingState: 'default',
+  category: 'all'
 });
 
 // mutations
@@ -14,7 +18,19 @@ const mutations = {
     state.menu = menu;
   },
   setCountedPositions(state, counter) {
-    state.positionsCounter = counter;
+    state.allPositionsCounter = counter;
+  },
+  setPositionsByCategory(state, positions) {
+    state.positionsByCategory = positions;
+  },
+  setSortingState(state, value) {
+    state.sortingState = value;
+  },
+  setCategory(state, category) {
+    state.category = category;
+  },
+  setDefaultPositions(state, positions) {
+    state.defaultPositions = positions;
   }
 };
 
@@ -24,8 +40,11 @@ const actions = {
     fetch('https://demo5851419.mockable.io/positions')
       .then(res => res.json())
       .then(data => {
+        const category = context.state.category;
         context.commit('setPositions', data);
-        this.dispatch('countPositions', 'all');
+        context.commit('setDefaultPositions', data);
+        context.commit('setPositionsByCategory', data[category]);
+        this.dispatch('countPositions', category);
       });
   },
   fetchMenu(context) {
@@ -35,23 +54,42 @@ const actions = {
         context.commit('setMenu', data);
       });
   },
-  countPositions(context, category) {
+  countPositions(context) {
+    const category = context.state.category;
     const result = context.state.positions[category].length;
     context.commit('setCountedPositions', result);
-  }
-};
+  },
+  getPositionsByCategory(context) {
+    const category = context.state.category;
+    const data = context.state.positions[category];
+    const sorting_state = context.state.sortingState;
 
-// getters
-const getters = {
-  sortByPrice(state) {
-    const result = state.positions.all.sort((a, b) => a.price - b.price);
-    return result;
+    if (sorting_state === 'price-low') {
+      this.dispatch('sortByLowPrice', data);
+    } else if (sorting_state === 'price-high') {
+      this.dispatch('sortByHighPrice', data);
+    } else if (sorting_state === 'default') {
+      // this.dispatch('fetchPositions')
+    }
+  },
+  sortByHighPrice(context, data) {
+    const result = data.sort((a, b) => b.price - a.price);
+    context.commit('setPositionsByCategory', result);
+  },
+  sortByLowPrice(context, data) {
+    const result = data.sort((a, b) => a.price - b.price);
+    context.commit('setPositionsByCategory', result);
+  },
+  sortingStateChange(context, value) {
+    context.commit('setSortingState', value);
+  },
+  setCategory(context, category) {
+    context.commit('setCategory', category);
   }
 };
 
 export default {
   state,
   mutations,
-  actions,
-  getters
+  actions
 };
