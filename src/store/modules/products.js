@@ -124,6 +124,11 @@ const actions = {
     context.commit('setEndIndex', end);
     context.commit('setStartIndex', start);
     context.commit('setCurrentPage', page);
+  },
+  setPage(context, page) {
+    context.commit('setEndIndex', page.endIndex);
+    context.commit('setStartIndex', page.startIndex);
+    context.commit('setCurrentPage', page.number);
   }
 };
 

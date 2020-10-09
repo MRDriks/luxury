@@ -3,18 +3,21 @@
     <button
       class="btn btn-prev"
       :disabled="products.pagination.currentPage === 1"
-      v-on:click="$store.dispatch('prevPage')"
+      @click="prevPageClick"
     >
       <i class="fas fa-chevron-left"></i>
       prev
     </button>
-    <button class="btn btn-page">1</button>
+    <button class="btn btn-page" @click="firstPageClick">1</button>
+    <button class="btn btn-page" @click="lastPageClick">
+      {{ $store.state.products.pagination.totalPages }}
+    </button>
     <button
       class="btn btn-next"
       :disabled="
         products.pagination.currentPage >= products.pagination.totalPages
       "
-      v-on:click="$store.dispatch('nextPage')"
+      @click="nextPageClick"
     >
       next
       <i class="fas fa-chevron-right"></i>
@@ -26,7 +29,42 @@
 import { mapState } from 'vuex';
 
 export default {
-  computed: mapState(['products'])
+  computed: mapState(['products']),
+  methods: {
+    prevPageClick() {
+      this.$store.dispatch('prevPage');
+      document.location.href = '#products';
+    },
+    nextPageClick() {
+      this.$store.dispatch('nextPage');
+      document.location.href = '#products';
+    },
+    firstPageClick() {
+      const page = {
+        startIndex: 0,
+        endIndex: 6,
+        number: 1
+      };
+      this.$store.dispatch('setPage', page);
+      document.location.href = '#products';
+    },
+    lastPageClick() {
+      const state = this.$store.state.products;
+      const startIndex =
+        state.allPositionsCounter - (state.allPositionsCounter % 6);
+      const endIndex = state.allPositionsCounter;
+      const number = state.pagination.totalPages;
+      const page = {
+        startIndex,
+        endIndex,
+        number
+      };
+      this.$store.dispatch('setPage', page);
+      document.location.href = '#products';
+      console.log(startIndex);
+      console.log(endIndex);
+    }
+  }
 };
 </script>
 

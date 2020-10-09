@@ -1,5 +1,5 @@
 <template>
-  <article class="products">
+  <article class="products" id="products">
     <div class="container">
       <div class="products-wrapper">
         <Aside />

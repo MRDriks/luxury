@@ -9,11 +9,19 @@ export default {
     linkClick(event) {
       const elements = document.querySelectorAll('.btn-link');
       const category = event.target.id;
+      const page = {
+        startIndex: 0,
+        endIndex: 6,
+        number: 1
+      };
       this.$store.dispatch('setCategory', category);
       elements.forEach(item => item.removeAttribute('active'));
       event.target.setAttribute('active', 'true');
+      document.location.href = '#products';
       this.$store.dispatch('getPositionsByCategory');
       this.$store.dispatch('countPositions');
+      this.$store.dispatch('countTotalPages');
+      this.$store.dispatch('setPage', page);
     }
   }
 };
