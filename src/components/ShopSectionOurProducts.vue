@@ -3,9 +3,7 @@
     <header class="products-header">
       <h2 class="section-h-black">Our Products</h2>
       <select class="select-list text" v-on:change="selectOnChange($event)">
-        <option class="option-item text" value="default"
-          >Default Sorting</option
-        >
+        <option class="option-item text" value="rate">Most rated</option>
         <option class="option-item text" value="price-high"
           >Price - High to Low</option
         >
@@ -14,11 +12,15 @@
         >
       </select>
       <div class="display-style">
-        <div class="grid">
-          <i class="fas fa-th"></i>
+        <div class="view-model">
+          <i
+            class="fas fa-th vm-item"
+            @click="vmGridClick($event)"
+            active="true"
+          ></i>
         </div>
-        <div class="row">
-          <span></span>
+        <div class="view-model">
+          <i class="fas fa-bars vm-item" @click="vmRowClick($event)"></i>
         </div>
       </div>
       <p class="text">
@@ -26,7 +28,7 @@
         {{ products.pagination.totalPages }} pages
       </p>
     </header>
-    <div class="products-body">
+    <div class="products-body" :vm="products.viewModel">
       <ProductCard
         v-for="position in products.positionsByCategory.slice(
           products.pagination.startIndex,
@@ -58,6 +60,18 @@ export default {
       const value = event.target.value;
       this.$store.dispatch('sortingStateChange', value);
       this.$store.dispatch('getPositionsByCategory');
+    },
+    vmGridClick(event) {
+      this.$store.dispatch('setViewModel', 'grid');
+      const el = document.querySelectorAll('.vm-item');
+      el.forEach(item => item.removeAttribute('active'));
+      event.target.setAttribute('active', 'true');
+    },
+    vmRowClick(event) {
+      this.$store.dispatch('setViewModel', 'row');
+      const el = document.querySelectorAll('.vm-item');
+      el.forEach(item => item.removeAttribute('active'));
+      event.target.setAttribute('active', 'true');
     }
   }
 };
@@ -65,22 +79,6 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/scss/kit.scss';
-
-%row-line {
-  content: '';
-  width: 13px;
-  height: 3px;
-  background-color: #2c465a;
-  display: inline-block;
-}
-
-%gird-block {
-  content: '';
-  display: inline-block;
-  width: 3px;
-  height: 3px;
-  background-color: $pink;
-}
 
 .our-products {
   width: 870px;
@@ -93,47 +91,39 @@ export default {
 }
 
 .products-body {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  &[vm='grid'] {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &[vm='row'] {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .display-style {
   display: flex;
 }
 
-.grid,
-.row {
+.view-model {
   width: 31px;
   height: 31px;
   border: 1px solid #c7d1d6;
   margin: 0 4px;
   cursor: pointer;
-}
-
-.row {
-  @extend %column-center-aligment;
-  justify-content: center;
-
-  &::before {
-    @extend %row-line;
-  }
-
-  span {
-    @extend %row-line;
-    margin: 2px 0;
-  }
-
-  &::after {
-    @extend %row-line;
-  }
-}
-
-.grid {
-  @extend %row-center-aligment;
 
   i {
-    color: $pink;
+    color: #2c465a;
+    font-size: 16px;
+    width: 100%;
+    height: 100%;
+    @extend %row-center-aligment;
+
+    &[active='true'] {
+      color: $pink;
+    }
   }
 }
 

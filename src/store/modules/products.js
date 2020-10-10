@@ -4,7 +4,7 @@ const state = () => ({
   menu: [],
   positionsByCategory: [],
   allPositionsCounter: 0,
-  sortingState: 'default',
+  sortingState: 'rate',
   category: 'all',
   pagination: {
     currentPage: 1,
@@ -12,7 +12,8 @@ const state = () => ({
     perPage: 6,
     startIndex: 0,
     endIndex: 6
-  }
+  },
+  viewModel: 'grid'
 });
 
 // mutations
@@ -46,6 +47,9 @@ const mutations = {
   },
   setCurrentPage(state, page) {
     state.pagination.currentPage = page;
+  },
+  setViewModel(state, vm) {
+    state.viewModel = vm;
   }
 };
 
@@ -60,6 +64,7 @@ const actions = {
         context.commit('setPositionsByCategory', data[category]);
         this.dispatch('countPositions', category);
         this.dispatch('countTotalPages');
+        this.dispatch('sortByRate', data[category]);
       });
   },
   fetchMenu(context) {
@@ -83,8 +88,8 @@ const actions = {
       this.dispatch('sortByLowPrice', data);
     } else if (sorting_state === 'price-high') {
       this.dispatch('sortByHighPrice', data);
-    } else if (sorting_state === 'default') {
-      context.commit('setPositionsByCategory', data);
+    } else if (sorting_state === 'rate') {
+      this.dispatch('sortByRate', data);
     }
   },
   sortByHighPrice(context, data) {
@@ -93,6 +98,10 @@ const actions = {
   },
   sortByLowPrice(context, data) {
     const result = data.sort((a, b) => a.price - b.price);
+    context.commit('setPositionsByCategory', result);
+  },
+  sortByRate(context, data) {
+    const result = data.sort((a, b) => b.rate - a.rate);
     context.commit('setPositionsByCategory', result);
   },
   sortingStateChange(context, value) {
@@ -129,6 +138,9 @@ const actions = {
     context.commit('setEndIndex', page.endIndex);
     context.commit('setStartIndex', page.startIndex);
     context.commit('setCurrentPage', page.number);
+  },
+  setViewModel(context, vm) {
+    context.commit('setViewModel', vm);
   }
 };
 

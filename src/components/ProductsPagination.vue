@@ -61,8 +61,6 @@ export default {
       };
       this.$store.dispatch('setPage', page);
       document.location.href = '#products';
-      console.log(startIndex);
-      console.log(endIndex);
     }
   }
 };

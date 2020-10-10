@@ -1,12 +1,19 @@
 <template>
-  <div class="card">
+  <div class="card" :vm="$store.state.products.viewModel">
+    <div class="rate">
+      {{ position.rate }}
+      <i class="fas fa-star"></i>
+    </div>
     <img
       class="position-image"
       src="@/assets/img/position-1.jpg"
       alt="Position image"
     />
-    <p class="title">{{ position.title }}</p>
-    <p class="price">${{ position.price }}</p>
+    <div class="text-block">
+      <p class="title">{{ position.title }}</p>
+      <p class="description">{{ position.description }}</p>
+      <p class="price">${{ position.price }}</p>
+    </div>
     <button
       v-on:click="positionBtnClick($event, position.id)"
       class="btn-position"
@@ -34,6 +41,59 @@ export default {
   border: 1px solid #e4e4e4;
   position: relative;
   margin-top: 50px;
+
+  &[vm='row'] {
+    width: 100%;
+    display: flex;
+    height: 100%;
+
+    .rate {
+      right: 5px;
+      left: auto;
+    }
+
+    .position-image {
+      margin: 0;
+    }
+
+    .price {
+      margin: 0;
+    }
+
+    .description {
+      display: block;
+    }
+
+    .text-block {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .btn-position {
+      left: 61%;
+      transform: none;
+    }
+  }
+}
+
+.rate {
+  width: 39px;
+  height: 25px;
+  background-color: $orange;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  @include font($Sintony, 14px, 700, $white);
+  @extend %row-center-aligment;
+
+  i {
+    color: $white;
+    font-size: 13px;
+    margin-left: 4px;
+  }
 }
 
 .position-image {
@@ -52,6 +112,10 @@ export default {
   @include font($Sintony, 16px, 700, $dark-blue);
   text-align: center;
   margin-top: 10px;
+}
+
+.description {
+  display: none;
 }
 
 .btn-position {
@@ -83,7 +147,7 @@ export default {
   }
 
   &.active {
-    background-color: #4af029;
+    background-color: $pink;
   }
 
   &.active {
