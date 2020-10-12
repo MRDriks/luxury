@@ -1,10 +1,16 @@
 <template>
   <section class="banner">
     <div class="wrapper">
-      <h1>Shop Listing</h1>
+      <h1>{{ title }}</h1>
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  props: ['title']
+};
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/kit.scss';

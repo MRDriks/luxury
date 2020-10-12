@@ -11,9 +11,7 @@
             <router-link to="/menu" class="link">menu</router-link>
           </li>
           <li>
-            <router-link to="/reservation" class="link"
-              >reservation</router-link
-            >
+            <router-link to="/reservation" class="link">gallery</router-link>
           </li>
           <li>
             <router-link to="/recipe" class="link">recipe</router-link>

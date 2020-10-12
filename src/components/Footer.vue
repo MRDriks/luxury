@@ -44,20 +44,7 @@
                 <button class="btn">subscribe</button>
               </div>
             </form>
-            <div class="social">
-              <a href="#" class="social-link">
-                <img
-                  src="../assets/img/icons/facebook.png"
-                  alt="Facebook link"
-                />
-              </a>
-              <a href="#" class="social-link">
-                <img src="../assets/img/icons/twitter.png" alt="Twitter link" />
-              </a>
-              <a href="#" class="social-link">
-                <img src="../assets/img/icons/google.png" alt="Google+ link" />
-              </a>
-            </div>
+            <SocialBar />
           </div>
           <div class="app">
             <h2>Our app available</h2>
@@ -83,6 +70,16 @@
     </div>
   </footer>
 </template>
+
+<script>
+import SocialBar from '@/components/SocialBar';
+
+export default {
+  components: {
+    SocialBar
+  }
+};
+</script>
 
 <style lang="scss">
 @import '@/assets/scss/kit.scss';
@@ -147,30 +144,6 @@
   button {
     width: 149px;
     height: 51px;
-  }
-}
-
-.social {
-  display: flex;
-
-  .social-link {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    @extend %row-center-aligment;
-
-    &:nth-child(1) {
-      background-color: #3b5998;
-    }
-
-    &:nth-child(2) {
-      background-color: #55acee;
-      margin: 0 5px;
-    }
-
-    &:nth-child(3) {
-      background-color: #dd4b39;
-    }
   }
 }
 
