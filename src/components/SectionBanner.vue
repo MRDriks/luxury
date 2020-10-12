@@ -20,10 +20,11 @@ export default {
   height: 250px;
   background-color: $dark-blue;
   @extend %row-center-aligment;
-  @include font($Playfair, 56px, 700, $white);
 }
 
 h1 {
+  @include font($Playfair, 56px, 700, $white);
+
   &::before,
   &::after {
     content: '';
