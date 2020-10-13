@@ -20,6 +20,10 @@ const routes = [
   {
     path: '/gallery',
     component: () => import('@/views/Gallery')
+  },
+  {
+    path: '/menu',
+    component: () => import('@/views/Menu')
   }
 ];
 
