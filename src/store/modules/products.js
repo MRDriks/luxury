@@ -3,9 +3,11 @@ const state = () => ({
   positions: [],
   menu: [],
   positionsByCategory: [],
+  menuByCategory: [],
   allPositionsCounter: 0,
   sortingState: 'rate',
   category: 'all',
+  menuCategory: 'all',
   pagination: {
     currentPage: 1,
     totalPages: 0,
@@ -30,11 +32,17 @@ const mutations = {
   setPositionsByCategory(state, positions) {
     state.positionsByCategory = positions;
   },
+  setMenuByCategory(state, data) {
+    state.menuByCategory = data;
+  },
   setSortingState(state, value) {
     state.sortingState = value;
   },
   setCategory(state, category) {
     state.category = category;
+  },
+  setMenuCategory(state, category) {
+    state.menuCategory = category;
   },
   setTotalPages(state, pages) {
     state.pagination.totalPages = pages;
@@ -72,6 +80,7 @@ const actions = {
       .then(res => res.json())
       .then(data => {
         context.commit('setMenu', data);
+        context.dispatch('getMenuByCategory');
       });
   },
   countPositions(context) {
@@ -92,6 +101,11 @@ const actions = {
       this.dispatch('sortByRate', data);
     }
   },
+  getMenuByCategory(context) {
+    const category = context.state.menuCategory;
+    const data = context.state.menu[category];
+    context.commit('setMenuByCategory', data);
+  },
   sortByHighPrice(context, data) {
     const result = data.sort((a, b) => b.price - a.price);
     context.commit('setPositionsByCategory', result);
@@ -109,6 +123,9 @@ const actions = {
   },
   setCategory(context, category) {
     context.commit('setCategory', category);
+  },
+  setMenuCategory(context, category) {
+    context.commit('setMenuCategory', category);
   },
   countTotalPages(context) {
     const result = Math.ceil(
