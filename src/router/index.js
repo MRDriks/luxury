@@ -6,23 +6,23 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
+    path: '/luxury',
     component: Home
   },
   {
-    path: '/shop',
+    path: '/luxury/shop',
     component: () => import('@/views/Shop')
   },
   {
-    path: '/contact',
+    path: '/luxury/contact',
     component: () => import('@/views/Contact')
   },
   {
-    path: '/gallery',
+    path: '/luxury/gallery',
     component: () => import('@/views/Gallery')
   },
   {
-    path: '/menu',
+    path: '/luxury/menu',
     component: () => import('@/views/Menu')
   }
 ];
