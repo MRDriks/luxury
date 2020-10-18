@@ -1,0 +1,17 @@
+%row-center-aligment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%column-center-aligment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+%container-center-aligment {
+    width: $content-size;
+    left: 50%;
+    transform: translateX(-50%);
+}

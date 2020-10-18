@@ -1,0 +1,103 @@
+.container {
+    width: $content-size;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.wrapper {
+    font-family: $Playfair;
+    color: $dark-blue;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: $dark-blue;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $orange;
+    border-radius: 5px;
+
+    &::before {
+        width: 4px;
+        height: 2px;
+        background-color: #000;
+        display: inline-block;
+        position: absolute;
+    }
+}
+
+.btn {
+    @include font($Sintony, 14px, 700, $white);
+    text-transform: uppercase;
+    background-color: $orange;
+    border-radius: 4px;
+}
+
+.tel {
+    @include font($Playfair, 32px, 700, $dark-blue);
+}
+
+.price {
+    @include font($Playfair, 30px, 700, $orange);
+
+    sup {
+        font-size: 0.6em;
+    }
+}
+
+.section-h-black, .section-h-white, .block-h-black {
+    @include font($Playfair, 35px, 700, $dark-blue);
+}
+
+.section-h-white {
+    color: $white;
+}
+
+.block-h-black {
+    font-size: 26px;
+}
+
+.text {
+    @include font($Sintony, 14px, 400, $default-grey);
+    line-height: 26px;
+}
+
+.delivery-text {
+    @include font($Sintony, 14px, 700, $dark-blue);
+    text-transform: uppercase;
+    line-height: 17px;
+
+    span {
+        color: $pink;
+    }
+}
+
+.swiper-pagination-bullet {
+    width: 14px;
+    height: 14px;
+    border-radius: 7px;
+    border: 2px solid #e8e9ea;
+}
+
+  .swiper-pagination-bullet-active {
+    border-color: $orange;
+    background: transparent;
+    position: relative;
+
+    &::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      background-color: $orange;
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+    }
+}
