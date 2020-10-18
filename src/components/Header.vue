@@ -5,25 +5,25 @@
         <img src="@/assets/img/logo.png" alt="Brand logo" />
         <ul class="menu">
           <li>
-            <router-link to="/" class="link">home</router-link>
+            <router-link to="/luxury" class="link">home</router-link>
           </li>
           <li>
-            <router-link to="/menu" class="link">menu</router-link>
+            <router-link to="/luxury/menu" class="link">menu</router-link>
           </li>
           <li>
-            <router-link to="/gallery" class="link">gallery</router-link>
+            <router-link to="/luxury/gallery" class="link">gallery</router-link>
           </li>
           <li>
-            <router-link to="/events" class="link">events</router-link>
+            <router-link to="/luxury/events" class="link">events</router-link>
           </li>
           <li>
-            <router-link to="/chef" class="link">chef</router-link>
+            <router-link to="/luxury/chef" class="link">chef</router-link>
           </li>
           <li>
-            <router-link to="/shop" class="link">shop</router-link>
+            <router-link to="/luxury/shop" class="link">shop</router-link>
           </li>
           <li>
-            <router-link to="/contact" class="link">contact</router-link>
+            <router-link to="/luxury/contact" class="link">contact</router-link>
           </li>
           <li>
             <div class="cart">
