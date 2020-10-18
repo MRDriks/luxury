@@ -6,7 +6,7 @@
     </div>
     <img
       class="position-image"
-      src="@/assets/img/position-1.jpg"
+      src="https://images.pexels.com/photos/1146760/pexels-photo-1146760.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
       alt="Position image"
     />
     <div class="text-block">
@@ -15,7 +15,7 @@
       <p class="price">${{ position.price }}</p>
     </div>
     <button
-      v-on:click="positionBtnClick($event, position.id)"
+      @click="addToCart($event, position.id)"
       class="btn-position"
     ></button>
   </div>
@@ -25,8 +25,9 @@
 export default {
   props: ['position'],
   methods: {
-    positionBtnClick(event) {
+    addToCart(event, positionId) {
       event.target.classList.toggle('active');
+      this.$store.dispatch('addToCart', positionId);
     }
   }
 };

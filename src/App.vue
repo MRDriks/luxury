@@ -19,6 +19,7 @@ export default {
   store,
   created() {
     this.$store.dispatch('fetchPositions');
+    this.$store.dispatch('fetchAllPositions');
     this.$store.dispatch('fetchMenu');
   }
 };

@@ -14,10 +14,10 @@
             <router-link to="/gallery" class="link">gallery</router-link>
           </li>
           <li>
-            <router-link to="/recipe" class="link">recipe</router-link>
+            <router-link to="/events" class="link">events</router-link>
           </li>
           <li>
-            <router-link to="/blog" class="link">blog</router-link>
+            <router-link to="/chef" class="link">chef</router-link>
           </li>
           <li>
             <router-link to="/shop" class="link">shop</router-link>
@@ -30,11 +30,21 @@
               <img src="@/assets/img/icons/cart.png" alt="Cart icon" />
               <img src="@/assets/img/icons/arrow.png" alt="Arrow icon" />
               <div class="counter">
-                <span>0</span>
+                <span>{{ cart.counter }}</span>
               </div>
               <div class="cart-preview">
-                <!-- <div class="item">
-                </div> -->
+                <div class="item" v-for="item in cart.order" :key="item.id">
+                  <img v-bind:src="item.image" alt="" />
+                  <div class="text-content">
+                    <h3 class="title">{{ item.title }}</h3>
+                    <p class="description">{{ item.description }}</p>
+                    <p class="price">{{ item.price }}</p>
+                  </div>
+                </div>
+                <footer class="cart-preview-footer" v-if="cart.order.length">
+                  <span class="total">Total: ${{ cart.totalPrice }}</span>
+                  <a href="#" class="btn">To order</a>
+                </footer>
               </div>
             </div>
           </li>
@@ -53,6 +63,14 @@
     </div>
   </header>
 </template>
+
+<script>
+import { mapState } from 'vuex';
+
+export default {
+  computed: mapState(['cart'])
+};
+</script>
 
 <style lang="scss">
 @import '@/assets/scss/kit.scss';
@@ -139,6 +157,38 @@
       width: 100px;
       height: 100px;
       border-radius: 5px;
+    }
+
+    .text-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      margin-top: 20px;
+    }
+
+    .description {
+      padding: 10px 0 30px 0;
+      width: 235px;
+    }
+
+    .price {
+      font-size: 22px;
+      text-align: right;
+    }
+
+    .cart-preview-footer {
+      padding: 30px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    .total {
+      @include font($Sintony, 16px, 600, $dark-blue);
+    }
+
+    .btn {
+      padding: 15px 20px;
     }
   }
 
