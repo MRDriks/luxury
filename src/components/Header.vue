@@ -14,10 +14,10 @@
             <router-link to="/luxury/gallery" class="link">gallery</router-link>
           </li>
           <li>
-            <router-link to="/luxury/events" class="link">events</router-link>
+            <router-link to="/luxury/chef" class="link">chef</router-link>
           </li>
           <li>
-            <router-link to="/luxury/chef" class="link">chef</router-link>
+            <router-link to="/luxury/events" class="link">events</router-link>
           </li>
           <li>
             <router-link to="/luxury/shop" class="link">shop</router-link>

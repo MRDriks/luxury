@@ -27,6 +27,10 @@ const routes = [
   {
     path: '/luxury/chef',
     component: () => import('@/views/Chef')
+  },
+  {
+    path: '/luxury/events',
+    component: () => import('@/views/Events')
   }
 ];
 
