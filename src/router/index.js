@@ -1,13 +1,12 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '@/views/Home';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/luxury',
-    component: Home
+    component: () => import('@/views/Home')
   },
   {
     path: '/luxury/shop',
@@ -24,6 +23,10 @@ const routes = [
   {
     path: '/luxury/menu',
     component: () => import('@/views/Menu')
+  },
+  {
+    path: '/luxury/chef',
+    component: () => import('@/views/Chef')
   }
 ];
 
