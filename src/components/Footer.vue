@@ -7,31 +7,31 @@
             <h2>Navigation</h2>
             <ul>
               <li>
-                <a href="#">Home</a>
+                <router-link to="/luxury">Home</router-link>
               </li>
               <li>
-                <a href="#">About us</a>
+                <router-link to="/luxury/menu">Menu</router-link>
               </li>
               <li>
-                <a href="#">Menu</a>
+                <router-link to="/luxury/gallery">Gallery</router-link>
               </li>
               <li>
-                <a href="#">Reservation</a>
+                <router-link to="/luxury/chef">Chef</router-link>
               </li>
               <li>
-                <a href="#">Recipe</a>
+                <router-link to="/luxury/events">Events</router-link>
               </li>
               <li>
-                <a href="#">Blog</a>
+                <router-link to="/luxury/shop">Shop</router-link>
               </li>
               <li>
-                <a href="#">Contact us</a>
+                <router-link to="/luxury/contact">Contact</router-link>
               </li>
             </ul>
           </nav>
           <div class="news-letter">
             <h2>News letter</h2>
-            <form class="news-letter-form">
+            <form class="news-letter-form" @submit.prevent>
               <label for="email_field"
                 >Enter your email address and subscribe daily newsletter</label
               >
@@ -40,6 +40,7 @@
                   type="email"
                   id="email_field"
                   placeholder="Email Address"
+                  required
                 />
                 <button class="btn">subscribe</button>
               </div>
@@ -63,7 +64,8 @@
         </div>
         <div class="rights">
           <p>
-            2020 &copy; <a href="/">Luxury restaurant</a>, all rights reserved
+            2020 &copy; <a href="/luxury">Luxury restaurant</a>, all rights
+            reserved
           </p>
         </div>
       </div>

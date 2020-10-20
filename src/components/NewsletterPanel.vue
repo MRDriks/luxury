@@ -5,11 +5,12 @@
       <p class="text">
         Lorem Ipsum is simply dummy text of the printing
       </p>
-      <form class="email-form">
+      <form class="email-form" @submit.prevent>
         <input
           class="email-field"
           type="email"
           placeholder="Email Address"
+          autocomplete="off"
           required
         />
         <button class="btn btn-subscribe">Subscribe</button>

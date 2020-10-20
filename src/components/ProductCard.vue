@@ -15,8 +15,9 @@
       <p class="price">${{ position.price }}</p>
     </div>
     <button
-      @click="addToCart($event, position.id)"
+      @click="btnClick($event, position.id)"
       class="btn-position"
+      :id="position.id"
     ></button>
   </div>
 </template>
@@ -25,10 +26,28 @@
 export default {
   props: ['position'],
   methods: {
-    addToCart(event, positionId) {
+    btnClick(event, positionId) {
+      if (!event.target.classList.value.includes('active')) {
+        this.$store.dispatch('addToCart', positionId);
+      } else {
+        this.$store.dispatch('removeFromCart', positionId);
+      }
       event.target.classList.toggle('active');
-      this.$store.dispatch('addToCart', positionId);
     }
+  },
+  mounted() {
+    const orderAllId = [];
+    const allElements = document.querySelectorAll('.btn-position');
+    this.$store.state.cart.order.forEach(item => {
+      orderAllId.push(item.id);
+    });
+    allElements.forEach(a => {
+      orderAllId.forEach(b => {
+        if (a.id == b) {
+          a.classList.add('active');
+        }
+      });
+    });
   }
 };
 </script>

@@ -9,8 +9,13 @@ const mutations = {
   setAllPositions(state, data) {
     state.allPositions = data;
   },
-  addPositionToOrder(state, data) {
+  addPosition(state, data) {
     state.order.push(data);
+  },
+  removePosition(state, id) {
+    state.order = state.order.filter(item => {
+      return item.id !== id;
+    });
   },
   setCounter(state, data) {
     state.counter = data;
@@ -35,7 +40,13 @@ const actions = {
     });
     const quantityOfPositions = context.state.order.length + 1;
     context.commit('setCounter', quantityOfPositions);
-    context.commit('addPositionToOrder', result[0]);
+    context.commit('addPosition', result[0]);
+    this.dispatch('countTotalPrice');
+  },
+  removeFromCart(context, positionId) {
+    const quantityOfPositions = context.state.order.length - 1;
+    context.commit('setCounter', quantityOfPositions);
+    context.commit('removePosition', positionId);
     this.dispatch('countTotalPrice');
   },
   countTotalPrice(context) {
