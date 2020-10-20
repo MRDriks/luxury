@@ -1,3 +1,3 @@
 ### Luxury - restaurant
 
-https://mrdriks.github.io/luxury/home
+https://mrdriks.github.io/luxury
