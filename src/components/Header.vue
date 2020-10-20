@@ -1,29 +1,53 @@
 <template>
   <header class="header">
+    <vue-topprogress ref="topProgress" color="#fe4c8d"></vue-topprogress>
     <div class="container">
       <nav class="nav-bar">
         <img src="@/assets/img/logo.png" alt="Brand logo" />
         <ul class="menu">
           <li>
-            <router-link to="/luxury" class="link">home</router-link>
+            <router-link @click.native="scrollUp" to="/luxury/home" class="link"
+              >home</router-link
+            >
           </li>
           <li>
-            <router-link to="/luxury/menu" class="link">menu</router-link>
+            <router-link @click.native="scrollUp" to="/luxury/menu" class="link"
+              >menu</router-link
+            >
           </li>
           <li>
-            <router-link to="/luxury/gallery" class="link">gallery</router-link>
+            <router-link
+              @click.native="scrollUp"
+              to="/luxury/gallery"
+              class="link"
+              >gallery</router-link
+            >
           </li>
           <li>
-            <router-link to="/luxury/chef" class="link">chef</router-link>
+            <router-link @click.native="scrollUp" to="/luxury/chef" class="link"
+              >chef</router-link
+            >
           </li>
           <li>
-            <router-link to="/luxury/events" class="link">events</router-link>
+            <router-link
+              @click.native="scrollUp"
+              to="/luxury/events"
+              class="link"
+              >events</router-link
+            >
           </li>
           <li>
-            <router-link to="/luxury/shop" class="link">shop</router-link>
+            <router-link @click.native="scrollUp" to="/luxury/shop" class="link"
+              >shop</router-link
+            >
           </li>
           <li>
-            <router-link to="/luxury/contact" class="link">contact</router-link>
+            <router-link
+              @click.native="scrollUp"
+              to="/luxury/contact"
+              class="link"
+              >contact</router-link
+            >
           </li>
           <li>
             <div class="cart">
@@ -66,9 +90,33 @@
 
 <script>
 import { mapState } from 'vuex';
+import { vueTopprogress } from 'vue-top-progress';
 
 export default {
-  computed: mapState(['cart'])
+  computed: mapState(['cart']),
+  methods: {
+    scrollUp() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  },
+  mounted() {
+    this.$router.beforeEach((to, from, next) => {
+      this.$refs.topProgress.start();
+      next();
+    });
+    const context = this;
+    this.$router.afterEach(() => {
+      setTimeout(() => {
+        context.$refs.topProgress.done();
+      }, 500);
+    });
+  },
+  components: {
+    vueTopprogress
+  }
 };
 </script>
 
@@ -231,5 +279,9 @@ export default {
 .link {
   @include font($Sintony, 14px, 700, $default-blue);
   text-transform: uppercase;
+}
+
+.router-link-active {
+  color: $orange;
 }
 </style>

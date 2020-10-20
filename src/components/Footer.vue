@@ -7,25 +7,39 @@
             <h2>Navigation</h2>
             <ul>
               <li>
-                <router-link to="/luxury">Home</router-link>
+                <router-link @click.native="scrollUp" to="/luxury"
+                  >Home</router-link
+                >
               </li>
               <li>
-                <router-link to="/luxury/menu">Menu</router-link>
+                <router-link @click.native="scrollUp" to="/luxury/menu"
+                  >Menu</router-link
+                >
               </li>
               <li>
-                <router-link to="/luxury/gallery">Gallery</router-link>
+                <router-link @click.native="scrollUp" to="/luxury/gallery"
+                  >Gallery</router-link
+                >
               </li>
               <li>
-                <router-link to="/luxury/chef">Chef</router-link>
+                <router-link @click.native="scrollUp" to="/luxury/chef"
+                  >Chef</router-link
+                >
               </li>
               <li>
-                <router-link to="/luxury/events">Events</router-link>
+                <router-link @click.native="scrollUp" to="/luxury/events"
+                  >Events</router-link
+                >
               </li>
               <li>
-                <router-link to="/luxury/shop">Shop</router-link>
+                <router-link @click.native="scrollUp" to="/luxury/shop"
+                  >Shop</router-link
+                >
               </li>
               <li>
-                <router-link to="/luxury/contact">Contact</router-link>
+                <router-link @click.native="scrollUp" to="/luxury/contact"
+                  >Contact</router-link
+                >
               </li>
             </ul>
           </nav>
@@ -79,6 +93,14 @@ import SocialBar from '@/components/SocialBar';
 export default {
   components: {
     SocialBar
+  },
+  methods: {
+    scrollUp() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
   }
 };
 </script>
