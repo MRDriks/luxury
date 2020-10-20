@@ -1,5 +1,6 @@
 <template>
   <div id="app" class="wrapper">
+    <Preloader />
     <Header />
     <router-view />
     <Footer />
@@ -7,12 +8,14 @@
 </template>
 
 <script>
+import Preloader from '@/components/Preloader';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import store from '@/store/index';
 
 export default {
   components: {
+    Preloader,
     Header,
     Footer
   },

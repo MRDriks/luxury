@@ -6,6 +6,11 @@ import App from './App.vue';
 import router from './router';
 import store from './store/index';
 
+window.onload = () => {
+  document.querySelector('.preloader').setAttribute('active', 'false');
+  document.querySelector('.body').style.overflowY = 'visible';
+};
+
 new Vue({
   router,
   store,
