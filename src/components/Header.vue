@@ -6,7 +6,7 @@
         <img src="@/assets/img/logo.png" alt="Brand logo" />
         <ul class="menu">
           <li>
-            <router-link @click.native="scrollUp" to="/luxury/home" class="link"
+            <router-link @click.native="scrollUp" to="/luxury" class="link"
               >home</router-link
             >
           </li>
@@ -279,9 +279,9 @@ export default {
 .link {
   @include font($Sintony, 14px, 700, $default-blue);
   text-transform: uppercase;
-}
 
-.router-link-active {
-  color: $orange;
+  &[aria-current='page'] {
+    color: $orange;
+  }
 }
 </style>
