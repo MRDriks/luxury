@@ -36,6 +36,16 @@
     &:nth-child(3) {
       background-color: #dd4b39;
     }
+
+    img {
+      transition: transform ease 0.5s;
+    }
+
+    &:hover {
+      img {
+        transform: rotateY(360deg);
+      }
+    }
   }
 }
 </style>

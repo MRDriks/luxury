@@ -73,7 +73,11 @@
             </div>
           </li>
           <li>
-            <router-link to="/luxury/reservation" class="link">
+            <router-link
+              @click.native="scrollUp"
+              to="/luxury/reservation"
+              class="link"
+            >
               <div class="back-layout">
                 <div class="btn btn-reserve">
                   <img src="@/assets/img/icons/plate.png" alt="Plate" />

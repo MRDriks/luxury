@@ -125,6 +125,11 @@ export default {
       &:last-child {
         margin-bottom: 0;
       }
+
+      a:hover {
+        transition: color ease 0.3s;
+        color: #ededed;
+      }
     }
   }
 
@@ -181,16 +186,28 @@ export default {
 
   img {
     margin: 0 20px;
+    transition: transform 0.5s;
   }
 
   p {
     @include font($Sintony, 11px, 400, #edf1f3);
     width: 100px;
     line-height: 20px;
+    transition: margin-left 0.5s;
   }
 
   span {
     font-size: 17px;
+  }
+
+  &:hover {
+    img {
+      transform: rotateX(360deg);
+    }
+
+    p {
+      margin-left: 15px;
+    }
   }
 }
 
