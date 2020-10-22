@@ -8,29 +8,77 @@
           1500s, when an unknown printer took a galley of type and scrambled it
           to make a type specimen book.
         </p>
-        <form class="reservation-form">
+        <form class="reservation-form" @submit.prevent>
           <div class="input-wrapper">
-            <input type="text" placeholder="Name*" required />
+            <input
+              @blur="inputOnBlur($event)"
+              @focus="inputOnFocus($event)"
+              type="text"
+              id="name"
+              required
+              autocomplete="off"
+            />
+            <label for="name">Name*</label>
             <i class="fas fa-user"></i>
           </div>
           <div class="input-wrapper">
-            <input type="email" placeholder="Email Address*" required />
+            <input
+              @blur="inputOnBlur($event)"
+              @focus="inputOnFocus($event)"
+              type="text"
+              id="email"
+              required
+              autocomplete="off"
+            />
+            <label for="email">Email Address*</label>
             <i class="fas fa-envelope"></i>
           </div>
           <div class="input-wrapper">
-            <input type="tel" placeholder="Phone Number*" required />
+            <input
+              @blur="inputOnBlur($event)"
+              @focus="inputOnFocus($event)"
+              type="text"
+              id="phone"
+              required
+              autocomplete="off"
+            />
+            <label for="phone">Phone Number*</label>
             <i class="fas fa-mobile-alt"></i>
           </div>
           <div class="input-wrapper">
-            <input type="text" placeholder="Date*" required />
+            <input
+              @blur="inputOnBlur($event)"
+              @focus="inputOnFocus($event)"
+              type="text"
+              id="date"
+              required
+              autocomplete="off"
+            />
+            <label for="date">Date*</label>
             <i class="fas fa-calendar-alt"></i>
           </div>
           <div class="input-wrapper">
-            <input type="text" placeholder="Time*" required />
+            <input
+              @blur="inputOnBlur($event)"
+              @focus="inputOnFocus($event)"
+              type="text"
+              id="time"
+              required
+              autocomplete="off"
+            />
+            <label for="name">Time*</label>
             <i class="fas fa-clock"></i>
           </div>
           <div class="input-wrapper">
-            <input type="number" placeholder="Guests*" required />
+            <input
+              @blur="inputOnBlur($event)"
+              @focus="inputOnFocus($event)"
+              type="text"
+              id="guests"
+              required
+              autocomplete="off"
+            />
+            <label for="guests">Guests*</label>
             <i class="fas fa-users"></i>
           </div>
           <div class="row">
@@ -45,6 +93,24 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  methods: {
+    inputOnBlur(event) {
+      let el = document.querySelector(`#${event.target.id} + label`);
+      if (event.target.value !== '') {
+        el.style.opacity = '0';
+      } else {
+        el.style.opacity = '1';
+      }
+    },
+    inputOnFocus(event) {
+      document.querySelector(`#${event.target.id} + label`).style.opacity = '1';
+    }
+  }
+};
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/kit.scss';
@@ -83,9 +149,32 @@
     width: 100%;
   }
 
-  input::placeholder,
-  textarea::placeholder {
+  input:focus,
+  textarea:focus {
+    border-bottom: 1px solid $orange;
+
+    & + label {
+      top: -10px;
+      left: 0;
+    }
+
+    & ~ i {
+      color: $orange;
+    }
+  }
+
+  textarea:focus {
+    & + label {
+      top: -25px;
+    }
+  }
+
+  label {
     @include font($Sintony, 14px, 400, #363d43);
+    transition: all ease 0.5s;
+    position: absolute;
+    top: 35%;
+    left: 30px;
   }
 
   .input-wrapper {

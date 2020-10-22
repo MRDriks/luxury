@@ -1,6 +1,10 @@
 <template>
   <section class="reviews">
     <div class="container">
+      <div class="explore-menu-banner">
+        <p>Explore food Menu</p>
+        <img src="@/assets/img/note.png" alt="Note" class="note-image" />
+      </div>
       <div class="reviews-wrapper">
         <div class="box">
           <img src="@/assets/img/icons/reviews.png" alt="Reviews icon" />
@@ -95,6 +99,21 @@
     span {
       color: $orange;
     }
+  }
+}
+
+.explore-menu-banner {
+  position: absolute;
+  z-index: 10;
+  top: 500px;
+
+  p {
+    @include font($Playfair, 22px, 400, $white);
+    width: 110px;
+    position: absolute;
+    text-align: center;
+    top: 110px;
+    left: 49px;
   }
 }
 </style>

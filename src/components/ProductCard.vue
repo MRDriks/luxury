@@ -151,6 +151,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all ease 0.3s;
 
   &::before,
   &::after {
@@ -167,7 +168,7 @@ export default {
   }
 
   &.active {
-    background-color: $pink;
+    background-color: $dark-blue;
   }
 
   &.active {

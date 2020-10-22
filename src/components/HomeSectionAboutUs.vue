@@ -12,7 +12,9 @@
             only five centuries, but also the leap into electronic typesetting,
             remaining essentially unchanged.
           </p>
-          <a href="#" class="btn">read more</a>
+          <router-link to="/luxury/chef" @click.native="scrollUp" class="btn"
+            >read more</router-link
+          >
           <img src="@/assets/img/award.png" alt="Award image" />
         </div>
         <div class="images-box">
@@ -29,6 +31,19 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  methods: {
+    scrollUp() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  }
+};
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/kit.scss';

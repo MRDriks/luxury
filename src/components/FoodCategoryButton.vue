@@ -17,7 +17,9 @@ export default {
       this.$store.dispatch('setCategory', category);
       elements.forEach(item => item.removeAttribute('active'));
       event.target.setAttribute('active', 'true');
-      document.location.href = '#products';
+      document.querySelector('#products').scrollIntoView({
+        behavior: 'smooth'
+      });
       this.$store.dispatch('getPositionsByCategory');
       this.$store.dispatch('countPositions');
       this.$store.dispatch('countTotalPages');

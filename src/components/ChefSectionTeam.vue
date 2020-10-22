@@ -21,13 +21,13 @@
                 electronic typesetting
               </p>
               <div class="social">
-                <a class="link" href="#">
+                <a class="link" href="#" @click.prevent>
                   <i class="fab fa-facebook-f"></i>
                 </a>
-                <a class="link" href="#">
+                <a class="link" href="#" @click.prevent>
                   <i class="fab fa-twitter"></i>
                 </a>
-                <a class="link" href="#">
+                <a class="link" href="#" @click.prevent>
                   <i class="fab fa-google"></i>
                 </a>
               </div>
@@ -174,10 +174,20 @@ export default {
     justify-content: center;
     align-items: center;
     margin: 0 5px;
+    transition: background-color ease 0.3s;
 
     i {
       color: $white;
       font-size: 18px;
+      transition: color ease 0.3s;
+    }
+
+    &:hover {
+      background-color: #fff;
+
+      i {
+        color: $dark-blue;
+      }
     }
   }
 }

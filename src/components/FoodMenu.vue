@@ -131,11 +131,13 @@ export default {
     flex-direction: column;
     align-items: center;
     background-color: transparent;
+    transition: all ease 0.3s;
 
     i {
       color: $orange;
       font-size: 20px;
       margin-bottom: 10px;
+      transition: all ease 0.3s;
     }
 
     &[active='true'] {

@@ -1,11 +1,5 @@
 <template>
   <section class="banner">
-    <div class="image-container">
-      <div>
-        <p>Explore food Menu</p>
-        <img src="@/assets/img/note.png" alt="Note" class="note-image" />
-      </div>
-    </div>
     <div class="swiper-container banner-slider">
       <div class="swiper-pagination"></div>
       <div class="swiper-wrapper">

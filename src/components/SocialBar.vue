@@ -1,12 +1,12 @@
 <template>
   <div class="social">
-    <a href="#" class="social-link">
+    <a href="#" class="social-link" @click.prevent>
       <img src="../assets/img/icons/facebook.png" alt="Facebook link" />
     </a>
-    <a href="#" class="social-link">
+    <a href="#" class="social-link" @click.prevent>
       <img src="../assets/img/icons/twitter.png" alt="Twitter link" />
     </a>
-    <a href="#" class="social-link">
+    <a href="#" class="social-link" @click.prevent>
       <img src="../assets/img/icons/google.png" alt="Google+ link" />
     </a>
   </div>

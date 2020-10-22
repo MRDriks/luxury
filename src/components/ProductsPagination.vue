@@ -33,11 +33,15 @@ export default {
   methods: {
     prevPageClick() {
       this.$store.dispatch('prevPage');
-      document.location.href = '#products';
+      document.querySelector('#products').scrollIntoView({
+        behavior: 'smooth'
+      });
     },
     nextPageClick() {
       this.$store.dispatch('nextPage');
-      document.location.href = '#products';
+      document.querySelector('#products').scrollIntoView({
+        behavior: 'smooth'
+      });
     },
     firstPageClick() {
       const page = {
@@ -46,7 +50,9 @@ export default {
         number: 1
       };
       this.$store.dispatch('setPage', page);
-      document.location.href = '#products';
+      document.querySelector('#products').scrollIntoView({
+        behavior: 'smooth'
+      });
     },
     lastPageClick() {
       const state = this.$store.state.products;
@@ -60,7 +66,9 @@ export default {
         number
       };
       this.$store.dispatch('setPage', page);
-      document.location.href = '#products';
+      document.querySelector('#products').scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   }
 };
@@ -90,5 +98,12 @@ export default {
   background-color: transparent;
   border: 1px solid #d3d9dd;
   margin: 0 10px;
+  box-shadow: none;
+  transition: all ease 0.3s;
+
+  &:hover {
+    background-color: $dark-blue;
+    color: $white;
+  }
 }
 </style>

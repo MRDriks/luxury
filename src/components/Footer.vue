@@ -63,11 +63,11 @@
           </div>
           <div class="app">
             <h2>Our app available</h2>
-            <a href="#" class="store-link apple-store">
+            <a href="#" class="store-link apple-store" @click.prevent>
               <img src="../assets/img/icons/apple.png" alt="App Store" />
               <p>Available on the <span>App Store</span></p>
             </a>
-            <a href="#" class="store-link google-play">
+            <a href="#" class="store-link google-play" @click.prevent>
               <img
                 src="../assets/img/icons/google-play.png"
                 alt="Google Play"
