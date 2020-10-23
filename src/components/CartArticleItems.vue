@@ -28,7 +28,7 @@
             <div class="quantity-box">
               <p class="quantity">{{ item.quantity }}</p>
             </div>
-            <button class="btn-decrement" @click="quantityDecrement(item.id)">
+            <button class="btn-decrement" @click="quantityDecrement(item.id)" :disabled="item.quantity <= 1">
               <i class="fas fa-minus"></i>
             </button>
           </td>
@@ -58,14 +58,11 @@ export default {
       this.$store.dispatch('updateQuantity', data);
     },
     quantityDecrement(id) {
-      const el = document.querySelector('.quantity');
-      if (el.textContent !== '1') {
-        const data = {
-          id,
-          action: 'decrement'
-        };
-        this.$store.dispatch('updateQuantity', data);
-      }
+      const data = {
+        id,
+        action: 'decrement'
+      };
+      this.$store.dispatch('updateQuantity', data);
     }
   }
 };
@@ -194,5 +191,9 @@ export default {
   margin-left: 17.5px;
   margin-top: 10px;
   background-color: #f44336;
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
 }
 </style>
