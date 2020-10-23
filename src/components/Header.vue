@@ -67,7 +67,12 @@
                 </div>
                 <footer class="cart-preview-footer" v-if="cart.order.length">
                   <span class="total">Total: ${{ cart.totalPrice }}</span>
-                  <a href="#" class="btn">To order</a>
+                  <router-link
+                    @click.native="scrollUp"
+                    to="/luxury/cart"
+                    class="btn"
+                    >To order</router-link
+                  >
                 </footer>
               </div>
             </div>

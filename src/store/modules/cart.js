@@ -38,6 +38,7 @@ const actions = {
     const result = allPositions.filter(item => {
       return item.id == id;
     });
+    result[0].quantity = 1;
     const quantityOfPositions = context.state.order.length + 1;
     context.commit('setCounter', quantityOfPositions);
     context.commit('addPosition', result[0]);

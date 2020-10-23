@@ -35,6 +35,10 @@ const routes = [
   {
     path: '/luxury/reservation',
     component: () => import('@/views/Reservation')
+  },
+  {
+    path: '/luxury/cart',
+    component: () => import('@/views/Cart')
   }
 ];
 
