@@ -2,7 +2,9 @@ const state = () => ({
   counter: 0,
   order: [],
   totalPrice: 0,
-  allPositions: []
+  allPositions: [],
+  tax: 10,
+  deliveryPrice: 0
 });
 
 const mutations = {
@@ -22,6 +24,16 @@ const mutations = {
   },
   setTotalPrice(state, data) {
     state.totalPrice = data;
+  },
+  updateQuantity(state, data) {
+    state.order.forEach(item => {
+      if (data.action === 'increment' && data.id === item.id) {
+        item.quantity += 1;
+      } else if (data.action === 'decrement' && data.id === item.id) {
+        item.quantity -= 1;
+      }
+    });
+    this.dispatch('countTotalPrice');
   }
 };
 
@@ -38,10 +50,10 @@ const actions = {
     const result = allPositions.filter(item => {
       return item.id == id;
     });
-    result[0].quantity = 1;
+    const objExtend = { ...result[0], quantity: 1 };
     const quantityOfPositions = context.state.order.length + 1;
     context.commit('setCounter', quantityOfPositions);
-    context.commit('addPosition', result[0]);
+    context.commit('addPosition', objExtend);
     this.dispatch('countTotalPrice');
   },
   removeFromCart(context, positionId) {
@@ -53,9 +65,12 @@ const actions = {
   countTotalPrice(context) {
     let totalPrice = 0;
     context.state.order.forEach(item => {
-      totalPrice += parseFloat(item.price);
+      totalPrice += parseFloat(item.price) * item.quantity;
     });
     context.commit('setTotalPrice', totalPrice);
+  },
+  updateQuantity(context, data) {
+    context.commit('updateQuantity', data);
   }
 };
 
