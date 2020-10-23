@@ -28,7 +28,11 @@
             <div class="quantity-box">
               <p class="quantity">{{ item.quantity }}</p>
             </div>
-            <button class="btn-decrement" @click="quantityDecrement(item.id)" :disabled="item.quantity <= 1">
+            <button
+              class="btn-decrement"
+              @click="quantityDecrement(item.id)"
+              :disabled="item.quantity <= 1"
+            >
               <i class="fas fa-minus"></i>
             </button>
           </td>
