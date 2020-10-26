@@ -108,6 +108,7 @@ export default {
   justify-content: center;
   align-items: center;
   z-index: 10;
+  transition: background-color ease 0.3s;
 
   &::before,
   &::after {
@@ -117,6 +118,7 @@ export default {
     background-color: $white;
     display: inline-block;
     position: absolute;
+    transition: all ease 0.3s;
   }
 
   &::after {
@@ -124,12 +126,12 @@ export default {
   }
 
   &.active {
-    background-color: $pink;
+    background-color: $dark-blue;
   }
 
   &.active {
     &::after {
-      visibility: hidden;
+      transform: rotate(180deg);
     }
   }
 }

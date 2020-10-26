@@ -81,11 +81,11 @@
             <label for="guests">Guests*</label>
             <i class="fas fa-users"></i>
           </div>
+          <div class="input-wrapper">
+            <textarea rows="5" placeholder="Special Requirments*"></textarea>
+            <i class="fas fa-comments"></i>
+          </div>
           <div class="row">
-            <div class="input-wrapper">
-              <textarea rows="5" placeholder="Special Requirments*"></textarea>
-              <i class="fas fa-comments"></i>
-            </div>
             <button class="btn btn-reservation">Make reservation</button>
           </div>
         </form>
@@ -181,7 +181,7 @@ export default {
     position: relative;
     margin: 10px 0;
 
-    &:last-child {
+    &:nth-child(7) {
       width: 100%;
     }
 
@@ -201,6 +201,6 @@ export default {
 
 .row {
   width: 100%;
-  text-align: center;
+  justify-content: center;
 }
 </style>

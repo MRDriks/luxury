@@ -164,9 +164,19 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all ease 0.3s;
 
   i {
     color: $white;
+    transition: all ease 0.3s;
+  }
+
+  &:hover {
+    background-color: #f73325;
+
+    i {
+      transform: rotate(90deg);
+    }
   }
 }
 
@@ -178,6 +188,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color ease 0.2s;
 
   i {
     color: $white;
@@ -189,6 +200,10 @@ export default {
   margin-left: 17.5px;
   margin-bottom: 10px;
   background-color: #8bc34a;
+
+  &:hover {
+    background-color: #4af224;
+  }
 }
 
 .btn-decrement {
@@ -198,6 +213,10 @@ export default {
 
   &[disabled] {
     cursor: not-allowed;
+  }
+
+  &:hover {
+    background-color: #f73325;
   }
 }
 </style>
