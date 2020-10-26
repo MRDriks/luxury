@@ -16,11 +16,15 @@
           <i
             class="fas fa-th vm-item"
             @click="vmGridClick($event)"
-            active="true"
+            :active="products.viewModel === 'grid'"
           ></i>
         </div>
         <div class="view-model">
-          <i class="fas fa-bars vm-item" @click="vmRowClick($event)"></i>
+          <i
+            class="fas fa-bars vm-item"
+            @click="vmRowClick($event)"
+            :active="products.viewModel === 'row'"
+          ></i>
         </div>
       </div>
       <p class="text">

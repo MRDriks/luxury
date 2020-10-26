@@ -62,7 +62,10 @@
                   <div class="text-content">
                     <h3 class="title">{{ item.title }}</h3>
                     <p class="description">{{ item.description }}</p>
-                    <p class="price">{{ item.price }}</p>
+                    <div class="row">
+                      <p class="quantity">X {{ item.quantity }}</p>
+                      <p class="price">{{ item.price }}</p>
+                    </div>
                   </div>
                 </div>
                 <footer class="cart-preview-footer" v-if="cart.order.length">
@@ -73,6 +76,9 @@
                     class="btn"
                     >To order</router-link
                   >
+                </footer>
+                <footer class="cart-preview-empty" v-else>
+                  <p>no items in cart</p>
                 </footer>
               </div>
             </div>
@@ -233,11 +239,26 @@ export default {
       text-align: right;
     }
 
+    .quantity {
+      @include font($Sintony, 16px, 700, $dark-blue);
+    }
+
     .cart-preview-footer {
       padding: 30px 0;
       display: flex;
       align-items: center;
       justify-content: space-around;
+    }
+
+    .cart-preview-empty {
+      height: 100%;
+      @extend %row-center-aligment;
+
+      p {
+        text-transform: uppercase;
+        font-size: 22px;
+        letter-spacing: 2px;
+      }
     }
 
     .total {
@@ -292,5 +313,11 @@ export default {
   &[aria-current='page'] {
     color: $orange;
   }
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 </style>

@@ -268,7 +268,7 @@ export default {
   img {
     width: 569px;
     height: 420px;
-    border-radius: 10px;
+    border-radius: 6px;
   }
 }
 

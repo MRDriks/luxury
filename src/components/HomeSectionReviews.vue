@@ -12,7 +12,7 @@
             read <br />
             <span>reviews</span>
           </p>
-          <a href="#" class="back-layout">
+          <a href="#" @click.prevent class="back-layout">
             <div class="btn-reviews">
               <img
                 src="@/assets/img/icons/right-arrow.png"

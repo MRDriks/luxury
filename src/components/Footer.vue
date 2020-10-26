@@ -54,6 +54,7 @@
                   type="email"
                   id="email_field"
                   placeholder="Email Address"
+                  autocomplete="off"
                   required
                 />
                 <button class="btn">subscribe</button>
